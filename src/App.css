@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
+:root{
+  --menu-border-color:#1D5B79;
+  --menu-disabled-color:#18394a;
+  --menu-btn-color:#4c9caa;
+  --hover-btn-color:#5ec3bb;
+  --btn-menu-active-color:#ffbb45;
+  --color-font:#a12e26;
+  --color-scrollbar:#d16233;
+  --background-color:#FFF7F1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  width: 100vw;
+}
+
+/* BUTTONS / MENU */
+
+.menu{
+  background: var(--menu-border-color);
+  width: 36%;
+  min-height: 94.6vh;
+  text-align: center;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 99;
+  transition: all 0.5s ease;
+  position:absolute;
+}
+.menuHeading{
   color: white;
+  text-transform: uppercase;
+}
+.btn-menu{
+  border-radius: 0.7em;
+  width: 100%;
+  margin-top: 10px
+}
+.btn-group-menu{
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-group-menu,.btn-menu{
+  background: var(--menu-btn-color);
+  border: var(--menu-border-color) 0.09em solid!important;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1.2rem !important;
+}
+.btn-group-menu:disabled,.btn-menu:disabled{
+  background: var(--menu-disabled-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-group-menu:active,.btn-menu:active{
+  background: var(--menu-border-color)!important;
+  border-color: var(--menu-border-color)!important;
+}
+
+.btn-group-menu:hover,.btn-menu:hover{
+  background: var(--hover-btn-color);
+  color: black;
+  border-color: var(--menu-btn-color)!important;
+  transition: 0.3s;
+}
+
+.btn-group-menu:last-child{
+  border-top-right-radius: 0.7em;
+  border-bottom-right-radius: 0.7em;
+}
+
+.btn-group-menu:first-child{
+  border-top-left-radius: 0.7em;
+  border-bottom-left-radius: 0.7em;
+}
+
+.active{
+  background: var(--btn-menu-active-color)!important;
+  color: black!important;
+}
+.active:hover{
+  color: white!important;
+}
+/* CONTAINER */
+
+.container{
+  border: var(--menu-border-color) 2px solid;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  width: 95vw;
+  height: 95vh;
+  background: var(--background-color);
+  overflow-y:scroll;
+  position: relative;
+}
+.container::-webkit-scrollbar{
+  width: 9px;
+}
+.container::-webkit-scrollbar-track{
+  background: var(--color-scrollbar);
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-left: 1px var(--menu-border-color) solid;
+}
+.container::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom,var(--btn-menu-active-color),var(--color-font));    /* color of the scroll thumb */
+    border-radius: 30px; 
+    border: var(--color-scrollbar) 2px solid;
+}
+.row{
+  height: 100%;
+}
+.main{
+  padding: 0;
+}
+.content{
+  padding: 10px;
+}
+/* BANNER */
+.banner{
+  background: #ffbb45;
+  margin: 0;
+  padding: 5px 5px 15px 15px;
+  width: 100%!important;
+  border-top-left-radius: 7px;
+  text-align: center;
+}
+.rouded-top{
+  background: #ffbb45;
+  margin: 0;
+  padding: 5px 5px 15px 15px;
+  width: 100%!important;
+  border-top-left-radius: 7px;
+  text-align: center;
+}
+.BannerHeading{
+  text-transform: uppercase;
+}
+/* ICONS */
+.icon-open{
+  color: var(--color-font);
+  font-size: 25px;
+}
+.icon-close{
+  color: var(--menu-disabled-color);
+  font-size: 25px;
+}
+/* TAB */
+.content-tab {
+  border: 2px solid var(--menu-border-color);
+  padding: 0.5rem;
+  margin: 0;
+  border-bottom-left-radius: 5px;  
+  border-bottom-right-radius: 5px;
+  border-top: none;
+  font-size: 1rem;
+}
+  
+.content-tab-parent {
+  margin: 0;
+  border-radius: 10px;  
+  width: 100%;
+  transition: 0.3s;
+  
+}
+.content-tab-img{
+  background: url('https://picsum.photos/id/237/150/190');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fill;
+  width: 170px;
+  height: 200px;
+}
+.opened{
+  border-bottom-left-radius: 0;  
+  border-bottom-right-radius: 0;
+  transition: 0.3s;
+}
+/* MEDIATAGS */
+@media screen and (max-width: 467px) {
+  .container{
+    width: 99vw;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 767px) {
+  .menu,.btn-group-menu,.btn-menu{
+    font-size: 0.9rem !important;
+  }
+  .menu{
+    width: 50%;
   }
 }
