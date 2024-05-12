@@ -16,7 +16,7 @@ const GroupButtons = ({btnTitles, classNames,btnClass,page}) => {
                     }
                     else{
                         if(title===activeBtn){
-                            return <Button key={"btn-group-"+index} className={btnClass+' active'} onClick={(event)=> setBtn(event)}>{title}</Button>
+                            return <Button key={"btn-group-"+index} className={btnClass+' active_'} onClick={(event)=> setBtn(event)}>{title}</Button>
                        }
                        else{
                             return <Button key={"btn-group-"+index} className={btnClass} onClick={(event)=> setBtn(event)}>{title}</Button>
