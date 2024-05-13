@@ -4,6 +4,7 @@ import MainHeading from '../Pages/Heading/MainHeading';
 import {CgCloseR } from "react-icons/cg";
 import GroupButtons from '../Pages/Buttons/GroupButtons';
 import Collapse from 'react-bootstrap/Collapse';
+import {Link} from 'react-router-dom'
 //style={{ minHeight: '150px' }}
 const SideMenu = ({buttonsMenu,setBtn,activeBtn,ToggleMenu,MenuShow,buttonsGroup}) => {
     return (
@@ -16,12 +17,13 @@ const SideMenu = ({buttonsMenu,setBtn,activeBtn,ToggleMenu,MenuShow,buttonsGroup
                         <MainHeading Classes='menuHeading' key='heading-1' title='menu'/>
                         <hr></hr>
                     {
+                        
                         buttonsMenu.map((btn,index)=>{
                             if(btn.title === activeBtn){
-                                return <div className={''}><Button key={"btn-menu-"+index} className={'btn-menu active_'} onClick={(event)=> setBtn(event)}>{btn.title}</Button></div>
+                                return <div className={''}><Link to={'/'+btn.title}><Button key={"btn-menu-"+index} className={'btn-menu active_'} onClick={(event)=> setBtn(event)}>{btn.title}</Button></Link></div>
                             }
                             else{
-                                return <div className={''}><Button key={"btn-menu-"+index} className={'btn-menu'} onClick={(event)=> setBtn(event)}>{btn.title}</Button></div>
+                                return <div className={''}><Link to={'/'+btn.title}><Button key={"btn-menu-"+index} className={'btn-menu'} onClick={(event)=> setBtn(event)}>{btn.title}</Button></Link></div>
                             }
                         })
                     }
