@@ -2,7 +2,7 @@ import React from 'react';
 
 const Characters = () => {
     return (
-        <div>
+        <div className='content'>
             this is characters page
         </div>
     );

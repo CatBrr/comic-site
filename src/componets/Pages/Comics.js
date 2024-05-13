@@ -2,7 +2,7 @@ import React from 'react';
 
 const Comics = () => {
     return (
-        <div>
+        <div className='content'>
             this is comics page
         </div>
     );
